@@ -22,7 +22,8 @@ void plot(
     unsigned width,
     unsigned height,
     unsigned x,
-    unsigned y);
+    unsigned y,
+    unsigned textSize);
 void getData(std::vector<std::vector<float>> &data, unsigned amount);
 
 int main(int, char **)
@@ -65,7 +66,7 @@ int main(int, char **)
         sf::sleep(sf::milliseconds(time));
         getData(data, 20);
 
-        plot(window, font, SQUARE_SIZE, 1, data, 1500, 1000, 50, 50);
+        plot(window, font, SQUARE_SIZE, 1, data, 1000, 1000, 50, 50, 14);
         window.display();
 
         // Window and keyboard events
@@ -117,7 +118,8 @@ void plot(
     unsigned width,
     unsigned height,
     unsigned x,
-    unsigned y)
+    unsigned y,
+    unsigned textSize)
 {
     std::vector<std::vector<sf::RectangleShape>> rectangles;
     std::vector<std::vector<sf::Text>> texts;
@@ -186,7 +188,7 @@ void plot(
         tickx.setPosition(x + i * rectWidth, y + cols * rectHeight);
 
         sf::Text tickTextx;
-        tickTextx.setCharacterSize(14);
+        tickTextx.setCharacterSize(textSize);
         tickTextx.setFont(font);
         tickTextx.setFillColor(sf::Color::Black);
         tickTextx.setPosition(x + i * rectWidth - tickTextx.getLocalBounds().width - 4, y + cols * rectHeight + 4);
@@ -202,7 +204,7 @@ void plot(
         ticky.setPosition(x - 2, y + j * rectHeight);
 
         sf::Text tickTexty;
-        tickTexty.setCharacterSize(14);
+        tickTexty.setCharacterSize(textSize);
         tickTexty.setFont(font);
         tickTexty.setFillColor(sf::Color::Black);
         tickTexty.setString(std::to_string(j));
