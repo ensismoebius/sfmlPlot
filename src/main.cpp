@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <SFML/Graphics.hpp>
 
+#include "lib/Heatmap.h"
+
 ////////////////////////////////////////////
 ///////////////// SETTINGS /////////////////
 ////////////////////////////////////////////
@@ -67,6 +69,9 @@ int main(int, char **)
         getData(data, 20);
 
         plot(window, font, SQUARE_SIZE, 1, data, 1000, 1000, 50, 50, 14);
+
+        sfplot::Heatmap a(font,14);
+ 
         window.display();
 
         // Window and keyboard events

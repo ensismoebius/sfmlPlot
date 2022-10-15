@@ -17,6 +17,7 @@ find_package(SFML 2 REQUIRED COMPONENTS graphics system window)
 
 set (SRCS
 src/main.cpp
+src/lib/Heatmap.cpp
 )
 
 # Executable
