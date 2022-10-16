@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(sfmlplot VERSION 0.1.0
+project(sfmlplotTesting VERSION 0.1.0
         DESCRIPTION "Plot things in SFML environments"
         LANGUAGES CXX)
 
@@ -15,22 +15,28 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # For visualizations
 find_package(SFML 2 REQUIRED COMPONENTS graphics system window)
 
+# Compiles the dependecies too
+add_subdirectory("lib")
+include_directories("lib/include")
+
 set (SRCS
-src/Heatmap.cpp
+src/main.cpp
 )
 
-set(INCLUDES
-include/Heatmap.h
+# Executable
+add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
+
+# Copies the used font to folder
+file(
+    COPY ${CMAKE_CURRENT_SOURCE_DIR}/res/fonts/Arial.ttf
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/res/fonts
 )
-
-# Library
-add_library(${CMAKE_PROJECT_NAME} SHARED ${SRCS})
-
-target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ${INCLUDES})
 
 # Libraries to link
 set(SFML_LIBS sfml-system sfml-window sfml-graphics)
 target_link_libraries(${PROJECT_NAME} ${SFML_LIBS})
+
+
 
 
 
