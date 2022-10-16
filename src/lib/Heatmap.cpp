@@ -9,8 +9,8 @@ sfplot::Heatmap::Heatmap(
 {
 }
 
-virtual void sfplot::Heatmap::draw(sf::RenderTarget &target, sf::RenderStates states)
-{
+void sfplot::Heatmap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+
 }
 
 sfplot::Heatmap::~Heatmap()
