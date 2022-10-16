@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.9)
 
+# This is important!
+# When coding a library you must not use the
+# CMAKE_PROJECT_NAME variable because it will
+# assume the main project name instead of the
+# library name, and this is bad!
+# Your build will fail and you will get stuck.
 set(LIBNAME sfmlplot)
 
 project(
