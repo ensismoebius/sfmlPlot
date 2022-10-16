@@ -23,6 +23,12 @@ src/lib/Heatmap.cpp
 # Executable
 add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
 
+# Copies the used font to folder
+file(
+    COPY ${CMAKE_CURRENT_SOURCE_DIR}/res/fonts/Arial.ttf
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/res/fonts
+)
+
 # Libraries to link
 set(SFML_LIBS sfml-system sfml-window sfml-graphics)
 target_link_libraries(${PROJECT_NAME} ${SFML_LIBS})
