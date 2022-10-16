@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.9)
+
+set(LIBNAME sfmlplot)
+
 project(
-    sfmlplot VERSION 0.1.0
+    ${LIBNAME} VERSION 0.1.0
     DESCRIPTION "Plot things in SFML environments"
     HOMEPAGE_URL https://github.com/ensismoebius/sfmlPlot
     LANGUAGES CXX)
@@ -20,33 +23,33 @@ set(INCLUDE_DIRS include)
 set(INCLUDE_FILES "${INCLUDE_DIRS}/Heatmap.h")
 
 # Library
-add_library(${CMAKE_PROJECT_NAME} SHARED ${SRCS})
+add_library(${LIBNAME} SHARED ${SRCS})
 
-set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION})
-set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES PUBLIC_HEADER ${INCLUDE_FILES})
+set_target_properties(${LIBNAME} PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(${LIBNAME} PROPERTIES SOVERSION ${PROJECT_VERSION})
+set_target_properties(${LIBNAME} PROPERTIES PUBLIC_HEADER ${INCLUDE_FILES})
 
 # Includes the headers
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
+target_include_directories(${LIBNAME} PRIVATE ${INCLUDE_DIRS})
 
 # For visualizations
 find_package(SFML 2 REQUIRED COMPONENTS graphics system window)
 
 # Libraries to link
 set(SFML_LIBS sfml-system sfml-window sfml-graphics)
-target_link_libraries(${PROJECT_NAME} ${SFML_LIBS})
+target_link_libraries(${LIBNAME} ${SFML_LIBS})
 
 configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/share/pkgconfig/${PROJECT_NAME}.pc.in
-    ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc
+    ${CMAKE_CURRENT_SOURCE_DIR}/share/pkgconfig/${LIBNAME}.pc.in
+    ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.pc
     @ONLY
 )
 
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS ${LIBNAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
+    FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
 )
