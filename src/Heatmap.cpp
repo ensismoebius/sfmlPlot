@@ -1,4 +1,4 @@
-#include "Heatmap.h"
+#include "../include/Heatmap.h"
 
 sfplot::Heatmap::Heatmap(
     sf::Font font,

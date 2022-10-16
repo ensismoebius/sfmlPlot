@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# Temp files
+*.DS_Store*
+
 # Folders
 /build
 /.vscode

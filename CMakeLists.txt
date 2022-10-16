@@ -16,22 +16,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(SFML 2 REQUIRED COMPONENTS graphics system window)
 
 set (SRCS
-src/main.cpp
-src/lib/Heatmap.cpp
+src/Heatmap.cpp
 )
 
-# Executable
-add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
-
-# Copies the used font to folder
-file(
-    COPY ${CMAKE_CURRENT_SOURCE_DIR}/res/fonts/Arial.ttf
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/res/fonts
+set(INCLUDES
+include/Heatmap.h
 )
+
+# Library
+add_library(${CMAKE_PROJECT_NAME} SHARED ${SRCS})
+
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ${INCLUDES})
 
 # Libraries to link
 set(SFML_LIBS sfml-system sfml-window sfml-graphics)
 target_link_libraries(${PROJECT_NAME} ${SFML_LIBS})
 
-target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES})
+
+
 
