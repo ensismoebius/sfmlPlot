@@ -33,6 +33,7 @@
 
 # Temp files
 *.DS_Store*
+CMakeLists.txt.user
 
 # Folders
 /build
