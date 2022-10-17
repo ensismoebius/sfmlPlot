@@ -139,7 +139,9 @@ void sfplot::Heatmap::draw(sf::RenderTarget& target, sf::RenderStates states) co
         }
     }
 
-    this->drawAxis(target);
+    if (this->axis) {
+        this->drawAxis(target);
+    }
 }
 
 sfplot::Heatmap::~Heatmap()

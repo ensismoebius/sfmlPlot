@@ -9,7 +9,7 @@ namespace sfplot
 {
     class Heatmap : public sf::Transformable, public sf::Drawable
     {
-    private:
+    private:        
         unsigned cols;
         unsigned rows;
 
@@ -31,6 +31,7 @@ namespace sfplot
         sf::RectangleShape yAxisLine;
 
     public:
+        bool axis;
         unsigned y;
         unsigned x;
         unsigned width;
