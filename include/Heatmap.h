@@ -61,6 +61,7 @@ namespace sfplot
 
     private:
         inline void drawAxis(sf::RenderTarget& target) const;
+        sf::Color hsv(int hue, float sat, float val) const;
     };
 
 } // namespace sfplot
