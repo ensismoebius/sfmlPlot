@@ -21,8 +21,8 @@ sfplot::Heatmap::Heatmap(
     , rows(data[0].size())
     , rectWidth(width / (float)data.size())
     , rectHeight(height / (float)data[0].size())
-    , xAxisLine(sf::Vector2f(rectWidth * cols + 2, 2))
-    , yAxisLine(sf::Vector2f(2, rectHeight * rows + 2))
+    , xAxisLine(sf::Vector2f(rectWidth * cols + 2, 1))
+    , yAxisLine(sf::Vector2f(1, rectHeight * rows + 2))
 {
 
     // Positioning x axis
@@ -65,7 +65,7 @@ sfplot::Heatmap::Heatmap(
     // Prepare the x and y axis ticks
     for (unsigned int i = 0; i <= cols; i++) {
         // x axis ticks
-        sf::RectangleShape tickx(sf::Vector2f(2, 4));
+        sf::RectangleShape tickx(sf::Vector2f(1, 4));
         tickx.setFillColor(sf::Color::Black);
 
         sf::Text tickTextx;
@@ -79,7 +79,7 @@ sfplot::Heatmap::Heatmap(
 
     for (unsigned int j = 1; j <= rows; j++) {
         // y axis ticks
-        sf::RectangleShape ticky(sf::Vector2f(4, 2));
+        sf::RectangleShape ticky(sf::Vector2f(4, 1));
         ticky.setFillColor(sf::Color::Black);
 
         sf::Text tickTexty;
