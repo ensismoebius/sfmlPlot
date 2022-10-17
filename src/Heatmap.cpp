@@ -23,6 +23,7 @@ sfplot::Heatmap::Heatmap(
     , rectHeight(height / (float)data[0].size())
     , xAxisLine(sf::Vector2f(rectWidth * cols + 2, 1))
     , yAxisLine(sf::Vector2f(1, rectHeight * rows + 2))
+    , axis(true)
 {
 
     // Positioning x axis
