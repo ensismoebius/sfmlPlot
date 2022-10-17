@@ -47,7 +47,6 @@ namespace sfplot
         Heatmap(
                 sf::Font font,
                 unsigned textSize,
-                unsigned squareSize,
                 float maxValue,
                 unsigned width,
                 unsigned height,

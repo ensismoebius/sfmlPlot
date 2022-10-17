@@ -3,7 +3,6 @@
 sfplot::Heatmap::Heatmap(
     sf::Font font,
     unsigned textSize,
-    unsigned squareSize,
     float maxValue,
     unsigned width,
     unsigned height,
@@ -12,7 +11,6 @@ sfplot::Heatmap::Heatmap(
     std::vector<std::vector<float>>& data)
     : font(font)
     , textSize(textSize)
-    , squareSize(squareSize)
     , maxValue(maxValue)
     , width(width)
     , height(height)
@@ -21,8 +19,8 @@ sfplot::Heatmap::Heatmap(
     , data(data)
     , cols(data.size())
     , rows(data[0].size())
-    , rectWidth(width / (float)squareSize)
-    , rectHeight(height / (float)squareSize)
+    , rectWidth(width / (float)width / data.size())
+    , rectHeight(height / (float)height / data[0].size())
     , xAxisLine(sf::Vector2f(rectWidth * cols + 2, 2))
     , yAxisLine(sf::Vector2f(2, rectHeight * rows + 2))
 {
