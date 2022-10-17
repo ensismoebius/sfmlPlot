@@ -19,8 +19,8 @@ sfplot::Heatmap::Heatmap(
     , data(data)
     , cols(data.size())
     , rows(data[0].size())
-    , rectWidth(width / (float)width / data.size())
-    , rectHeight(height / (float)height / data[0].size())
+    , rectWidth(width / (float)data.size())
+    , rectHeight(height / (float)data[0].size())
     , xAxisLine(sf::Vector2f(rectWidth * cols + 2, 2))
     , yAxisLine(sf::Vector2f(2, rectHeight * rows + 2))
 {
