@@ -25,7 +25,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SRCS src/Heatmap.cpp)
-set(INCLUDE_DIRS include)
 set(INCLUDE_FILES "${INCLUDE_DIRS}/Heatmap.h")
 
 # Library
