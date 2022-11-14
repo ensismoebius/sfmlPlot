@@ -25,7 +25,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SRCS src/Heatmap.cpp)
-set(INCLUDE_FILES "${INCLUDE_DIRS}/Heatmap.h")
+set(INCLUDE_FILES include/Heatmap.h)
 
 # Library
 add_library(${LIBNAME} SHARED ${SRCS})
@@ -33,9 +33,6 @@ add_library(${LIBNAME} SHARED ${SRCS})
 set_target_properties(${LIBNAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${LIBNAME} PROPERTIES SOVERSION ${PROJECT_VERSION})
 set_target_properties(${LIBNAME} PROPERTIES PUBLIC_HEADER ${INCLUDE_FILES})
-
-# Includes the headers
-target_include_directories(${LIBNAME} PRIVATE ${INCLUDE_DIRS})
 
 # For visualizations
 find_package(SFML 2 REQUIRED COMPONENTS graphics system window)

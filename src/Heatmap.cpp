@@ -48,12 +48,6 @@ sfplot::Heatmap::Heatmap(
         for (unsigned int j = 0; j < rows; j++) {
             rectangles[i][j] = sf::RectangleShape(sf::Vector2f(rectWidth, rectHeight));
             rectangles[i][j].setPosition(x + i * rectWidth, y + j * rectHeight);
-            // texts[i][j].setFont(font);
-            // texts[i][j].setCharacterSize(resolution / 4);
-            // texts[i][j].setStyle(sf::Text::Regular);
-            // texts[i][j].setFillColor(sf::Color(0, 0, 0));
-            // texts[i][j].setPosition(x + i * rectWidth, y + j * rectHeight);
-            // texts[i][j].setString(std::to_string(value));
         }
     }
 
@@ -170,14 +164,8 @@ void sfplot::Heatmap::draw(sf::RenderTarget& target, sf::RenderStates states) co
     for (unsigned int i = 0; i < cols; i++) {
         for (unsigned int j = 0; j < rows; j++) {
             auto value = data[i][j] / maxValue;
-
             rectangles[i][j].setFillColor(this->hsv(value * 360, 1, 1));
-
-            // texts[i][j].setString(std::to_string(value));
-
             target.draw(rectangles[i][j]);
-
-            // window.draw(texts[i][j]);
         }
     }
 
